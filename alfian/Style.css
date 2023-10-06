@@ -1,0 +1,108 @@
+/*<----- Parents ----->*/
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Catamaran", Sans-Serif;
+  overflow-x: hidden;
+}
+
+/*<----- Navbar Dari Flexbox ----->*/
+nav {
+  display: flex;
+  background-color: #1fd9a2;
+  justify-content: space-between;
+  padding: 20px 30px;
+  color: #f6fcfd;
+}
+
+nav .nametag {
+  font: 12px/20px "Righteous", cursive;
+  letter-spacing: 2px;
+  z-index: 2;
+}
+
+nav ul {
+  display: flex;
+  width: 80%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style: none;
+  font-weight: bold;
+  font: 19px/10px "Catamaran", sans-serif;
+  background-color: #1fd9a2;
+  z-index: -1;
+  transform: translateX(100%);
+  /* Revisi */
+  transition: all 1s;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #f6fcfd;
+  font-size: 0.9em;
+}
+
+/*<----- Humburger Menu ----->*/
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  height: 15px;
+  justify-content: space-between;
+  position: relative;
+}
+
+.menu-toggle input {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  opacity: 0;
+  top: -7.5px;
+  right: -2.5px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  border-radius: 3px;
+  background-color: #f6fcfd;
+  transition: all 0.4s;
+}
+
+/*<----- Humburger Menu Animation ----->*/
+.menu-toggle span:nth-child(2) {
+  transform-origin: 0 0;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+  transform: rotate(45deg) translate(2px, -5px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+  transform: scale(0);
+  opacity: 0;
+}
+
+.menu-toggle span:nth-child(4) {
+  transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(4) {
+  transform: rotate(-45deg) translate(1.5px, 5px);
+}
+
+/* Revisi */
+nav ul.slide {
+  transform: translateX(0);
+  opacity: 1;
+}

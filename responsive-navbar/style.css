@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Catamaran", sans-serif;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    background-color: #1fd9a2;
+    justify-content: space-around;
+    /* padding: 20px 30px; */
+    height: 60px;
+    color: #f6fcfd;
+    align-items: center;
+}
+nav .logo {
+    font: 19px/20px "Righteous", cursive;
+    letter-spacing: 2px;
+    z-index: 2;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    width: 40%;
+    /* background-color: salmon; */
+    justify-content: space-evenly;
+}
+nav ul li a {
+    color: #f6fcfd;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+nav ul li a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Humberger Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    height: 15px;
+    justify-content: space-between;
+    position: relative;
+}
+.menu-toggle #btn-menu {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: -2.5px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+.menu-toggle span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background-color: #f6fcfd;
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+/* Humberger Menu Animation */
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+.menu-toggle span:last-child {
+    transform-origin: 0 100%;
+}
+.menu-toggle #btn-menu:checked ~ span:nth-child(2) {
+    transform: rotate(45deg) translate(-1px, -1px);
+    background-color: #167c16;
+}
+.menu-toggle #btn-menu:checked ~ span:nth-child(3) {
+    transform: scale(0);
+    opacity: 0;
+}
+.menu-toggle #btn-menu:checked ~ span:last-child {
+    background-color: #31af31;
+    transform: rotate(-45deg) translate(0px, 0px);
+}
+
+/* Responsive Breakpoint */
+@media screen and (max-width: 768px) {
+    nav ul {
+        width: 50%;
+    }
+}
+@media screen and (max-width: 576px) {
+    nav ul {
+        position: absolute;
+        right: 0;
+        top: 60px;
+        height: 50vh;
+        flex-direction: column;
+        background-color: #1fd9a2;
+        justify-content: space-evenly;
+        align-items: center;
+        z-index: -1;
+        transform: translateX(100%);
+        transition: all 0.5s;
+        opacity: 0;
+    }
+    nav ul.slide {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+}
